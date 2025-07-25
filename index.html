@@ -9,6 +9,8 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
     <style>
         :root {
             --primary-color: #4f46e5;
@@ -158,6 +160,8 @@
             display: flex;
             align-items: center;
             background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+            position: relative;
+            overflow: hidden;
         }
 
         .hero-content {
@@ -165,7 +169,23 @@
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
+             position: relative;
+            z-index: 1;
         }
+
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+
+
+
 
         .hero-text {
             flex: 1;
@@ -575,6 +595,7 @@
 
     <!-- Hero Section -->
     <section id="hero">
+        <div id="particles-js"></div>
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
@@ -835,6 +856,77 @@
             item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(item);
         });
+
+// Particle Js code Heaare
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#4f46e5"
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          }
+        },
+        "opacity": {
+          "value": 0.4,
+          "random": false
+        },
+        "size": {
+          "value": 3,
+          "random": true
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#4f46e5",
+          "opacity": 0.3,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 4,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "repulse"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "repulse": {
+            "distance": 100
+          },
+          "push": {
+            "particles_nb": 4
+          }
+        }
+      },
+      "retina_detect": true
+    });
+
     </script>
-</body>
+    </body>
 </html>
