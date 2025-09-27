@@ -224,9 +224,14 @@
             <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
             <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
         </div>
-        <div id="scrollToTop" class="scroll-top">
-                <i class="fas fa-arrow-up"></i>
-        </div>
+        <button id="scrollToTopBtn" style="display: none;">
+            <svg width="60" height="60">
+               <circle cx="30" cy="30" r="17" stroke="#ddd" stroke-width="4" fill="none"/>
+                <circle id="progressCircle" cx="30" cy="30" r="17" stroke="#4f46e5" stroke-width="4" fill="none"
+                        stroke-dasharray="157" stroke-dashoffset="157"/>
+            </svg>
+            <span>↑</span>
+        </button>
         <p>© 2025 Dhruvish Sorathiya. All rights reserved.</p>
     </footer>
 
@@ -236,23 +241,32 @@
 
     <!-- JavaScript -->
     <script>
-        const scrollBtn = document.getElementById("scrollToTop");
+            const btn = document.getElementById("scrollToTopBtn");
+            const progressCircle = document.getElementById("progressCircle");
+            const radius = progressCircle.r.baseVal.value;
+            const circumference = 2 * Math.PI * radius;
+            progressCircle.style.strokeDasharray = `${circumference}`;
+            progressCircle.style.strokeDashoffset = `${circumference}`;
 
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > 200) {
-                scrollBtn.style.display = "block";
+            window.addEventListener("scroll", () => {
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercent = scrollTop / docHeight;
+                const offset = circumference - scrollPercent * circumference;
+                progressCircle.style.strokeDashoffset = offset;
+
+            // Show/Hide button
+            if (scrollTop > 100) {
+                btn.style.display = "flex";
             } else {
-                scrollBtn.style.display = "none";
+                btn.style.display = "none";
             }
-        });
-
-        scrollBtn.addEventListener("click", () => {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
             });
-        });
 
+            btn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    
         // Mobile Navigation
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
@@ -328,5 +342,13 @@
      
 
     </script>
+     <script>
+    const cursor = document.querySelector('.cursor');
+
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.top = e.clientY + 'px';
+      cursor.style.left = e.clientX + 'px';
+    });
+  </script>
     </body>
 </html>

@@ -12,6 +12,7 @@
             box-sizing: border-box;
         }
 
+      
         body {
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
@@ -20,27 +21,35 @@
             overflow-x: hidden;
         }
 
-          .scroll-top {
+        #scrollToTopBtn {
             position: fixed;
-            bottom: 30px;
+            bottom: 40px;
             right: 30px;
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 12px;
-            border-radius: 16%;
-            font-size: 18px;
-            display: none;
-            z-index: 999;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             cursor: pointer;
-            transition: background 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            z-index: 999;
+            border: none;
+            }
+
+        #scrollToTopBtn svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: rotate(-90deg);
         }
 
-        .scroll-top:hover {
-            background-color: var(--primary-color);
+        #scrollToTopBtn span {
+            position: relative;
+            font-size: 20px;
+            color: #000;
         }
-
-     
-
         .container {
             width: 90%;
             max-width: 1200px;
