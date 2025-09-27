@@ -254,6 +254,23 @@
             min-width: 300px;
         }
 
+        @media (max-width: 768px) {
+        .about-content {
+                gap: 20px; /* Reduce gap between image and text */
+            }
+
+            .about-text {
+                margin-top: 0; /* Remove extra space above text */
+                padding-top: 0;
+            }
+
+            .about-image img {
+                max-height: 300px; /* Optional: Slightly reduce image height */
+            }
+        }
+
+        
+
         /* Skills Section */
         #skills {
             background-color: var(--light-color);
