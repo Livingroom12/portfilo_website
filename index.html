@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Dhruvish Sorathiya | Portfolio</title>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
@@ -22,11 +22,14 @@
     </script>
 </head>
 <body>
+    <div class="cursor"></div>
+    <div class="bg-blur"></div>
+
     <!-- Header -->
     <header id="header">
         <div class="container">
             <nav>
-                <a href="#hero" class="logo">Dhruvish Sorathiya</a>
+                <a href="#hero" class="logo">Dhruvish<span> Sorathiya</span></a>
                 <ul class="nav-links">
                     <li><a href="#hero">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -34,8 +37,11 @@
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <div class="hamburger">
-                    <i class="fas fa-bars"></i>
+                <div class="nav-actions">
+                    <a class="btn ghost" href="Dhruvish Sorathiya_CV.pdf" download>Download CV</a>
+                    <div class="hamburger" aria-label="Toggle navigation">
+                        <i class="fas fa-bars"></i>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -43,16 +49,40 @@
 
     <!-- Hero Section -->
     <section id="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Hi, I'm Dhruvish Sorathiya</h1>
-                    <div class="subtitle">Full Stack Developer</div>
-                    <p>I build exceptional digital experiences that drive results for businesses and organizations.</p>
-                    <a href="#contact" class="btn">Get In Touch</a>
+        <div class="container hero-grid">
+            <div class="hero-copy reveal">
+                <p class="eyebrow">Backend Developer • API Specialist</p>
+                <h1>Building reliable, scalable, and secure digital experiences.</h1>
+                <p class="lede">I craft clean APIs, optimize database performance, and ship production-ready systems that make products feel effortless.</p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn primary">Let’s talk</a>
+                    <a href="#experience" class="btn ghost">View experience</a>
                 </div>
-                <div class="hero-image">
-                    <img src="hello3.svg" alt="Professional developer working at a modern workstation with a laptop, coffee cup, and notebook in a bright, minimalist office setting" />
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <span class="stat-number">25+</span>
+                        <span class="stat-label">Projects delivered</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">2.5 yrs</span>
+                        <span class="stat-label">Backend experience</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">99.9%</span>
+                        <span class="stat-label">Uptime shipped</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual reveal">
+                <div class="hero-card">
+                    <div class="tag">Available for work</div>
+                    <img src="hello3.svg" alt="Developer at work illustration">
+                    <div class="stack-list">
+                        <span><i class="fab fa-laravel"></i>Laravel</span>
+                        <span><i class="fas fa-database"></i>MySQL</span>
+                        <span><i class="fab fa-aws"></i>AWS S3</span>
+                        <span><i class="fab fa-vuejs"></i>Vue</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -60,17 +90,25 @@
 
     <!-- About Section -->
     <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="personal_pic.jpeg" alt="Professional developer portrait with natural lighting, wearing casual business attire in front of a blurred office background" />
-                </div>
-                <div class="about-text">
-                    <p>With 2 years of hands-on experience as a backend developer, I specialize in building robust, scalable, and secure web applications. I'm passionate about crafting clean APIs, optimizing database performance, and ensuring seamless system integrations.</p>
-                    <p>Currently, I'm working as a backend developer where I contribute to building and maintaining production-ready systems, collaborating closely with frontend teams, and solving real-world business problems through code.</p>
-                    <p>Outside of work, I like diving into new technologies, contributing to side projects, or catching up on the latest in software development.</p>
-                    <a href="Dhruvish Sorathiya_CV.pdf" class="btn" download>Download CV</a>
+        <div class="container section-header">
+            <div>
+                <p class="eyebrow">About</p>
+                <h2>Who I am</h2>
+                <p class="lede">Backend-focused, product-minded engineer delivering resilient systems end-to-end.</p>
+            </div>
+            <a class="btn ghost" href="Dhruvish Sorathiya_CV.pdf" download>Download CV</a>
+        </div>
+        <div class="container about-grid">
+            <div class="about-image reveal">
+                <img src="personal_pic.jpeg" alt="Dhruvish Sorathiya portrait" />
+            </div>
+            <div class="about-text reveal text-about">
+                <p>With 2+ years of hands-on backend experience, I build performant APIs, design reliable data flows, and keep systems healthy in production.</p>
+                <p>Today, I work closely with product and frontend teams to ship features quickly without compromising on quality, observability, or security.</p>
+                <div class="pill-list">
+                    <span><i class="fas fa-code"></i> Clean, tested code</span>
+                    <span><i class="fas fa-cloud"></i> Cloud-first mindset</span>
+                    <span><i class="fas fa-shield-alt"></i> Secure by default</span>
                 </div>
             </div>
         </div>
@@ -78,276 +116,218 @@
 
     <!-- Skills Section -->
     <section id="skills">
-        <div class="container">
-            <h2>My Skills</h2>
-            <div class="skills-container">
-                <div class="skill-item">
-                    <i class="fab fa-html5"></i>
-                    <h3>HTML5</h3>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-css3-alt"></i>
-                    <h3>CSS3</h3>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-js"></i>
-                    <h3>JavaScript</h3>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-vuejs"></i>
-                    <h3>Vue JS</h3>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-php"></i>
-                    <h3>PHP</h3>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-laravel"></i>
-                    <h3>Laravel</h3>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-git-alt"></i>
-                    <h3>Git</h3>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-database"></i>
-                    <h3>My SQL</h3>
-                </div>
-                 <div class="skill-item">
-                    <i class="fas fa-wind"></i>
-                    <h3>Tailwind CSS</h3>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-bolt"></i>
-                    <h3>Electron JS</h3>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-cloud"></i>
-                    <h3>AWS S3</h3>
-                </div>
+        <div class="container section-header">
+            <div>
+                <p class="eyebrow">Skills</p>
+                <h2>Tech I work with</h2>
+                <p class="lede">A balanced toolkit for backend-heavy, user-ready products.</p>
             </div>
+        </div>
+        <div class="container skills-grid">
+            <div class="skill-card reveal"><i class="fab fa-html5"></i><span>HTML5</span></div>
+            <div class="skill-card reveal"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+            <div class="skill-card reveal"><i class="fab fa-js"></i><span>JavaScript</span></div>
+            <div class="skill-card reveal"><i class="fab fa-vuejs"></i><span>Vue JS</span></div>
+            <div class="skill-card reveal"><i class="fab fa-php"></i><span>PHP</span></div>
+            <div class="skill-card reveal"><i class="fab fa-laravel"></i><span>Laravel</span></div>
+            <div class="skill-card reveal"><i class="fab fa-git-alt"></i><span>Git</span></div>
+            <div class="skill-card reveal"><i class="fas fa-database"></i><span>MySQL</span></div>
+            <div class="skill-card reveal"><i class="fas fa-wind"></i><span>Tailwind CSS</span></div>
+            <div class="skill-card reveal"><i class="fas fa-bolt"></i><span>Electron JS</span></div>
+            <div class="skill-card reveal"><i class="fas fa-cloud"></i><span>AWS S3</span></div>
         </div>
     </section>
 
     <!-- Experience Section -->
     <section id="experience">
-        <div class="container">
-            <h2>My Experience</h2>
-            <div class="experience-timeline">
-                <div class="experience-item">
-                    <div class="experience-content">
+        <div class="container section-header">
+            <div>
+                <p class="eyebrow">Experience</p>
+                <h2>Where I’ve built</h2>
+                <p class="lede">Shipped production features, optimized systems, and led integrations.</p>
+            </div>
+        </div>
+        <div class="container timeline">
+            <div class="timeline-item reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                    <div class="timeline-top">
                         <h3>Laravel Developer</h3>
-                        <div class="company">Kalathiya Infotech</div>
-                        <div class="duration">2024 - Present</div>
+                        <span class="pill">2024 - Present</span>
                     </div>
+                    <p class="company">Kalathiya Infotech</p>
+                    <p>Building and maintaining scalable Laravel services with robust APIs and cloud storage integrations.</p>
                 </div>
-                
-                <div class="experience-item">
-                    <div class="experience-content">
+            </div>
+            <div class="timeline-item reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                    <div class="timeline-top">
                         <h3>Junior Backend Developer</h3>
-                        <div class="company">Artoon Solution Pvt Ltd</div>
-                        <div class="duration">2023 - 2023</div>
+                        <span class="pill">2023 - 2023</span>
                     </div>
+                    <p class="company">Artoon Solution Pvt Ltd</p>
+                    <p>Delivered backend features, improved database queries, and collaborated with frontend teams for seamless UI flows.</p>
                 </div>
-                
-                <div class="experience-item">
-                    <div class="experience-content">
+            </div>
+            <div class="timeline-item reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                    <div class="timeline-top">
                         <h3>PHP Developer</h3>
-                        <div class="company">Maven Infotech</div>
-                        <div class="duration">2022 - 2023</div>
+                        <span class="pill">2022 - 2023</span>
                     </div>
+                    <p class="company">Maven Infotech</p>
+                    <p>Built PHP applications, hardened security, and automated deployment processes for faster releases.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container section-header">
+            <div>
+                <p class="eyebrow">Projects</p>
+                <h2>Recent work</h2>
+                <p class="lede">A few things I’ve shipped—clean APIs, fast UIs, and reliable ops.</p>
+            </div>
+        </div>
+        <div class="container projects-grid">
+            <article class="project-card reveal">
+                <div class="project-top">
+                    <div class="project-title">
+                        <i class="fas fa-server"></i>
+                        <div>
+                            <h3>Inventory API</h3>
+                            <p class="muted">Laravel · MySQL · Redis</p>
+                        </div>
+                    </div>
+                    <a class="icon-btn" href="#" aria-label="View project"><i class="fas fa-arrow-up-right-from-square"></i></a>
+                </div>
+                <p class="project-desc">Multi-tenant inventory API with JWT auth, caching, and background jobs for heavy imports.</p>
+                <div class="project-tags">
+                    <span>JWT</span><span>Queues</span><span>Rate limiting</span>
+                </div>
+            </article>
+            <article class="project-card reveal">
+                <div class="project-top">
+                    <div class="project-title">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <div>
+                            <h3>Media Uploader</h3>
+                            <p class="muted">Laravel · AWS S3 · Vue</p>
+                        </div>
+                    </div>
+                    <a class="icon-btn" href="#" aria-label="View project"><i class="fas fa-arrow-up-right-from-square"></i></a>
+                </div>
+                <p class="project-desc">Secure file uploader with presigned URLs, chunked uploads, and role-based access.</p>
+                <div class="project-tags">
+                    <span>Presigned URLs</span><span>ACL</span><span>SPA</span>
+                </div>
+            </article>
+            <article class="project-card reveal">
+                <div class="project-top">
+                    <div class="project-title">
+                        <i class="fas fa-bolt"></i>
+                        <div>
+                            <h3>Ops Dashboard</h3>
+                            <p class="muted">Laravel · Vue · WebSockets</p>
+                        </div>
+                    </div>
+                    <a class="icon-btn" href="#" aria-label="View project"><i class="fas fa-arrow-up-right-from-square"></i></a>
+                </div>
+                <p class="project-desc">Real-time ops dashboard for alerts, deploy health, and service uptime tracking.</p>
+                <div class="project-tags">
+                    <span>WebSockets</span><span>Charts</span><span>Alerts</span>
+                </div>
+            </article>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact">
-        <div class="container">
-            <h2>Get In Touch</h2>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Location</h4>
-                            <p>Surat Gujarat</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p>dhruvishsorathiya40@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Phone</h4>
-                            <p>8141233650</p>
-                        </div>
+        <div class="container section-header">
+            <div>
+                <p class="eyebrow">Contact</p>
+                <h2>Let’s build together</h2>
+                <p class="lede">Tell me about your product or idea—I'll get back quickly.</p>
+            </div>
+        </div>
+        <div class="container contact-grid">
+            <div class="contact-info reveal">
+                <div class="info-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Location</h4>
+                        <p>Surat, Gujarat</p>
                     </div>
                 </div>
-                <div class="contact-form">
-                    <form id="form" method="POST">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
+                <div class="info-card">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p>dhruvishsorathiya40@gmail.com</p>
+                    </div>
                 </div>
+                <div class="info-card">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>+91 8141233650</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form reveal">
+                <form id="form" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn primary full">Send Message</button>
+                </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="social-links">
-            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <div class="container footer-content">
+            <div class="footer-left">
+                <p class="eyebrow">© 2025 Dhruvish Sorathiya</p>
+                <p>Backend developer crafting reliable experiences.</p>
+            </div>
+            <div class="social-links">
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
         </div>
-        <button id="scrollToTopBtn" style="display: none;">
+        <button id="scrollToTopBtn" aria-label="Back to top">
             <svg width="60" height="60">
-               <circle cx="30" cy="30" r="17" stroke="#ddd" stroke-width="4" fill="none"/>
+                <circle cx="30" cy="30" r="17" stroke="#ddd" stroke-width="4" fill="none"/>
                 <circle id="progressCircle" cx="30" cy="30" r="17" stroke="#4f46e5" stroke-width="4" fill="none"
                         stroke-dasharray="157" stroke-dashoffset="157"/>
             </svg>
             <span>↑</span>
         </button>
-        <p>© 2025 Dhruvish Sorathiya. All rights reserved.</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script src="script.js"></script>
-
-    <!-- JavaScript -->
-    <script>
-            const btn = document.getElementById("scrollToTopBtn");
-            const progressCircle = document.getElementById("progressCircle");
-            const radius = progressCircle.r.baseVal.value;
-            const circumference = 2 * Math.PI * radius;
-            progressCircle.style.strokeDasharray = `${circumference}`;
-            progressCircle.style.strokeDashoffset = `${circumference}`;
-
-            window.addEventListener("scroll", () => {
-                const scrollTop = window.scrollY;
-                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-                const scrollPercent = scrollTop / docHeight;
-                const offset = circumference - scrollPercent * circumference;
-                progressCircle.style.strokeDashoffset = offset;
-
-            // Show/Hide button
-            if (scrollTop > 100) {
-                btn.style.display = "flex";
-            } else {
-                btn.style.display = "none";
-            }
-            });
-
-            btn.addEventListener("click", () => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-    
-        // Mobile Navigation
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-        
-        // Close mobile menu when clicking on a nav link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-        
-        // Sticky Header
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-        
-        // Form Validation
-        const form = document.getElementById('form');
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            // alert('Message sent successfully!');
-            form.reset();
-        });
-        
-        // Smooth scrolling for all links with hashes
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Experience Timeline Animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.experience-item').forEach(item => {
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(20px)';
-            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(item);
-        });
-
-     
-
-    </script>
-     <script>
-    const cursor = document.querySelector('.cursor');
-
-    document.addEventListener('mousemove', (e) => {
-      cursor.style.top = e.clientY + 'px';
-      cursor.style.left = e.clientX + 'px';
-    });
-  </script>
-    </body>
+</body>
 </html>
