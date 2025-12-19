@@ -1,0 +1,92 @@
+public function share($id)
+{
+    $item = AIProps::findOrFail($id);
+
+    $tempPath = public_path('temp');
+    if (!File::exists($tempPath)) File::makeDirectory($tempPath, 0755, true);
+
+    // -------------------------
+    // 1. Download Original Image
+    // -------------------------
+    $originalUrl = $item->image;
+    $localOriginal = $tempPath . '/' . $item->id . '_original.jpg';
+    file_put_contents($localOriginal, file_get_contents($originalUrl));
+
+    // -------------------------
+    // 2. Create Overlay Image
+    // -------------------------
+    $overlayPath = $tempPath . '/' . $item->id . '_overlay.png';
+    $this->createOverlayImageGD($localOriginal, $item->title, $item->description, $overlayPath);
+
+    $originalPublicURL = asset('temp/' . $item->id . '_original.jpg');
+    $overlayPublicURL  = asset('temp/' . $item->id . '_overlay.png');
+
+    // IG Credentials
+    $igAccountId = env('IG_BUSINESS_ID');
+    $token       = env('IG_ACCESS_TOKEN');
+
+    if (!$igAccountId || !$token) {
+        return response()->json(["error" => "Instagram credentials missing"], 500);
+    }
+
+    // -------------------------
+    // Marketing Caption
+    // -------------------------
+    $caption = "✨ Transform your photos into stunning AI art… (your caption text)";
+
+    // -------------------------
+    // 3. UPLOAD FIRST IMAGE (original)
+    // -------------------------
+    $media1 = Http::post("https://graph.facebook.com/v19.0/{$igAccountId}/media", [
+        'image_url'    => $originalPublicURL,
+        'is_carousel_item' => true,
+        'access_token' => $token
+    ])->json();
+
+    if (!isset($media1['id'])) {
+        return response()->json(["error" => "Failed to upload Image 1", "data" => $media1], 500);
+    }
+
+    // -------------------------
+    // 4. UPLOAD SECOND IMAGE (overlay)
+    // -------------------------
+    $media2 = Http::post("https://graph.facebook.com/v19.0/{$igAccountId}/media", [
+        'image_url'    => $overlayPublicURL,
+        'is_carousel_item' => true,
+        'access_token' => $token
+    ])->json();
+
+    if (!isset($media2['id'])) {
+        return response()->json(["error" => "Failed to upload Image 2", "data" => $media2], 500);
+    }
+
+    // -------------------------
+    // 5. CREATE CAROUSEL
+    // -------------------------
+    $carousel = Http::post("https://graph.facebook.com/v19.0/{$igAccountId}/media", [
+        'children'     => json_encode([$media1['id'], $media2['id']]),
+        'caption'      => $caption,
+        'media_type'   => 'CAROUSEL',
+        'access_token' => $token
+    ])->json();
+
+    if (!isset($carousel['id'])) {
+        return response()->json(["error" => "Carousel creation failed", "data" => $carousel], 500);
+    }
+
+    // -------------------------
+    // 6. PUBLISH POST
+    // -------------------------
+    $publish = Http::post("https://graph.facebook.com/v19.0/{$igAccountId}/media_publish", [
+        'creation_id'  => $carousel['id'],
+        'access_token' => $token
+    ])->json();
+
+    $item->post_instgram_id = $publish['id'] ?? null;
+    $item->save();
+
+    return response()->json([
+        "message" => "Instagram Carousel Published Successfully!",
+        "post_id" => $publish['id']
+    ]);
+}
