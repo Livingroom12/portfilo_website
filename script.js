@@ -116,3 +116,123 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const track = document.getElementById("testiTrack");
+    const slides = document.querySelectorAll(".testimonial-slide");
+    const dotsContainer = document.getElementById("testiDots");
+    const prevBtn = document.getElementById("testiPrev");
+    const nextBtn = document.getElementById("testiNext");
+
+    let currentIndex = 0;
+    let autoPlay;
+
+    // Create dots
+    slides.forEach((_, index) => {
+        const dot = document.createElement("button");
+        dot.classList.add("testimonial-dot");
+
+        if (index === 0) {
+            dot.classList.add("active");
+        }
+
+        dot.addEventListener("click", () => {
+            goToSlide(index);
+            resetAutoplay();
+        });
+
+        dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll(".testimonial-dot");
+
+    // Update slider position
+    function updateSlider() {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+        dots.forEach(dot => dot.classList.remove("active"));
+        dots[currentIndex].classList.add("active");
+    }
+
+    // Go to specific slide
+    function goToSlide(index) {
+        currentIndex = index;
+        updateSlider();
+    }
+
+    // Next slide
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlider();
+    }
+
+    // Previous slide
+    function prevSlide() {
+        currentIndex =
+            (currentIndex - 1 + slides.length) % slides.length;
+        updateSlider();
+    }
+
+    // Button events
+    nextBtn.addEventListener("click", () => {
+        nextSlide();
+        resetAutoplay();
+    });
+
+    prevBtn.addEventListener("click", () => {
+        prevSlide();
+        resetAutoplay();
+    });
+
+    // Auto play
+    function startAutoplay() {
+        autoPlay = setInterval(() => {
+            nextSlide();
+        }, 5000);
+    }
+
+    // Reset autoplay on interaction
+    function resetAutoplay() {
+        clearInterval(autoPlay);
+        startAutoplay();
+    }
+
+    // Pause on hover
+    track.addEventListener("mouseenter", () => {
+        clearInterval(autoPlay);
+    });
+
+    track.addEventListener("mouseleave", () => {
+        startAutoplay();
+    });
+
+    // Touch swipe support
+    let startX = 0;
+    let endX = 0;
+
+    track.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+    });
+
+    track.addEventListener("touchend", (e) => {
+        endX = e.changedTouches[0].clientX;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        const diff = startX - endX;
+
+        if (diff > 50) {
+            nextSlide();
+        } else if (diff < -50) {
+            prevSlide();
+        }
+
+        resetAutoplay();
+    }
+
+    // Init
+    updateSlider();
+    startAutoplay();
+});
